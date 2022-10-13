@@ -65,11 +65,19 @@ function App() {
           <div className='swapTop'>
             <div className='swapText'>Swap</div>
           </div>
-          <div className='swapForm'>
-
+          <div className='swapForm'> {/* parental form element */}
+            <div className='swapBorder'>
+              
+            </div>
+            <div className='swapBorderPrice'>
+              {/* <div className='swapPrice'></div>
+              <div className='swapBalance'></div> */}
+            </div>
           </div>
           <div className='swapForm'>
+            <div className='swapBorder'>
 
+            </div>
           </div>
         </div>
       </div>
