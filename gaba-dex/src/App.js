@@ -1,7 +1,9 @@
 import './App.css';
 import { useState, useEffect} from 'react';
 import {ethers} from 'ethers';
+
 import PageButton from './components/PageButton';
+import ConnectButton from './components/ConnectButton';
 
 function App() {
   const [provider, setProvider] = useState(undefined);
@@ -42,6 +44,20 @@ function App() {
           <PageButton name={"Pool"} />
           <PageButton name={"Vote"} />
           <PageButton name={"Charts"} />
+        </div>
+
+        <div className='rightNav'>
+          <div className='connectButtonContainer'>
+            <ConnectButton 
+            provider={provider}
+            isConnected={isConnected}
+            signerAddress={signerAddress}
+            getSigner={getSigner}
+            />
+          </div>
+          <div className='my-2 buttonContainer'>
+          <PageButton name={"..."} isBold={true}/>
+          </div>
         </div>
       </div>
 
