@@ -3,12 +3,12 @@ import PageButton from "./PageButton";
 
 const ConnectButton = (props) => {
     const {isConnected, signerAddress, getSigner, provider} = props;
-    const displayAddress = `${signerAddress?.substring(0, 5)}...${signerAddress?.substring(38,42)}`
+    const displayAddress = `${signerAddress?.substring(0, 6)}...${signerAddress?.substring(38,42)}`
 
     return (
         <>
         {isConnected() ? (
-            <div className="buttonContainer">
+            <div className="buttonContainer buttonConnected">
             <PageButton name={displayAddress} />
             </div>
          ) : (

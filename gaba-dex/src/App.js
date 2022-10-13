@@ -60,8 +60,21 @@ function App() {
           </div>
         </div>
       </div>
+      <div className='main'>
+        <div className='swapPage'>
+          <div className='swapTop'>
+            <div className='swapText'>Swap</div>
+          </div>
+          <div className='swapForm'>
 
+          </div>
+          <div className='swapForm'>
+
+          </div>
+        </div>
+      </div>
     </div>
+    
   );
 }
 
