@@ -12,7 +12,14 @@ body {
 #root {
   min-height: 100vh;
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input::-webkit-input-placeholder
+{ color: white; } 
 /******************************************************************************/
 /* Navbar */
 .appNav {
@@ -98,12 +105,6 @@ body {
 .swapText {
   color: #000;
   font-size: 20px;
-}
-
-.swapTextTop{
-  color: #000;
-  font-size: 18px;
-  text-align: center;
 }
 
 .gearContainer {
@@ -238,29 +239,49 @@ body {
   max-width: 450px;
   margin: 50px auto 0px auto;
 }
+.swapTop{
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  width: 100%;
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+  font-weight: 500;
+}
 .swapPage{
   position: relative;
   border-radius: 16px;
   border: 1px solid black;
   padding: 8px;
 }
-.swapTop{
-  padding: 8px 12px;
-  margin-bottom: 8px;
-  width: 100%;
-}
-.swapBorder{
+.swapForm{
+  padding: 15px;
   position: relative;
   border-radius: 12px;
-  padding: 15px;
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
   background-color: gray;
+  margin-bottom: 5px;
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+.swapBorder{
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  min-height: 44px;
+}
+.swapBorderPosition{
+  display: flex;
+  flex-flow: row nowrap;
+  border: 1px solid transparent;
+}
+.swapInput{
+  font-size: 30px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  outline: none;
+  color: #fff;
+}
+.tokenButton{
+  margin-left: 12px;
 }

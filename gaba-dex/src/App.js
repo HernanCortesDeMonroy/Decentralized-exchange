@@ -62,23 +62,28 @@ function App() {
       <div className='main'>
         <div className='swapPage'>
           <div className='swapTop'>
-            <div className='swapTextTop'>Swap</div>
+            <div>Swap</div>
           </div>
           <div className='swapForm'> {/* parental form element - Position*/}
-            <div className='swapBorder'>
-              <div className='swapBorderPosition'>
-                <input className='swapInput' name='firstToken' type='number' placeholder='0' /> {/*maybe reactjs*/}
-                <div className=''></div>
+            <div className='swapBorder'> {/* border and style */}
+              <div className='swapBorderPosition'> {/* position between input and button */}
+                <input className='swapInput' name='firstToken' type='number' placeholder='0'/> {/*maybe reactjs*/}
+                <button className='tokenButton'></button>
+              </div>
+              <div className='swapBorderPrice'>
+
               </div>
             </div>
-            <div className='swapBorderPrice'>
-              {/* <div className='swapPrice'></div>
-              <div className='swapBalance'></div> */}
-            </div>
           </div>
           <div className='swapForm'> {/* parental form element - Position*/}
             <div className='swapBorder'>
-
+            <div className='swapBorderPosition'> {/* position between input and button */}
+                <input className='swapInput' name='firstToken' type='number' placeholder='0'/> {/*maybe reactjs*/}
+                <button className='tokenButton'></button>
+              </div>
+              <div className='swapBorderPrice'>
+        
+              </div>
             </div>
           </div>
         </div>
