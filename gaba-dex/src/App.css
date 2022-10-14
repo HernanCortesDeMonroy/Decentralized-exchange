@@ -100,6 +100,12 @@ body {
   font-size: 20px;
 }
 
+.swapTextTop{
+  color: #000;
+  font-size: 18px;
+  text-align: center;
+}
+
 .gearContainer {
   float: right;
   font-size: 22px
@@ -243,7 +249,7 @@ body {
   margin-bottom: 8px;
   width: 100%;
 }
-.swapToken{
+.swapBorder{
   position: relative;
   border-radius: 12px;
   padding: 15px;
@@ -251,4 +257,10 @@ body {
   line-height: 20px;
   font-weight: 500;
   background-color: gray;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }

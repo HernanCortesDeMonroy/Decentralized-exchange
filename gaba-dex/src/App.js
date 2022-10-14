@@ -45,7 +45,6 @@ function App() {
           <PageButton name={"Vote"} />
           <PageButton name={"Charts"} />
         </div>
-
         <div className='rightNav'>
           <div className='connectButtonContainer'>
             <ConnectButton 
@@ -63,18 +62,21 @@ function App() {
       <div className='main'>
         <div className='swapPage'>
           <div className='swapTop'>
-            <div className='swapText'>Swap</div>
+            <div className='swapTextTop'>Swap</div>
           </div>
-          <div className='swapForm'> {/* parental form element */}
+          <div className='swapForm'> {/* parental form element - Position*/}
             <div className='swapBorder'>
-              
+              <div className='swapBorderPosition'>
+                <input className='swapInput' name='firstToken' type='number' placeholder='0' /> {/*maybe reactjs*/}
+                <div className=''></div>
+              </div>
             </div>
             <div className='swapBorderPrice'>
               {/* <div className='swapPrice'></div>
               <div className='swapBalance'></div> */}
             </div>
           </div>
-          <div className='swapForm'>
+          <div className='swapForm'> {/* parental form element - Position*/}
             <div className='swapBorder'>
 
             </div>
