@@ -33,6 +33,22 @@ input::-webkit-input-placeholder
 .pageButtonBold {
   font-weight: 400;
 }
+.topButton{
+  display: inline-block;
+  padding: 7px 16px;
+  margin: 3px 3px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: #000;
+  transition: .25s;
+  border-radius: 12px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.topButton:hover{
+  background-color: gray;
+  color: #000;
+}
 
 .buttonContainer {
   background-color: #fff;
@@ -56,7 +72,7 @@ input::-webkit-input-placeholder
 
 .buttonContainerTop {
   margin-left: 175px;
-  padding: 0 6px;
+  padding: 0 3px;
 }
 
 .connectButton {
@@ -75,8 +91,8 @@ input::-webkit-input-placeholder
   border-color: rgb(213, 0, 102) !important;
 }
 
-.hoverBold:hover {
-  font-weight: 400;
+.hoverBold{
+  font-weight: 500;
 }
 
 /******************************************************************************/
@@ -197,7 +213,6 @@ input::-webkit-input-placeholder
   align-items: center;
   justify-content: center;
   color: rgb(86, 90, 105);
-
 }
 
 .modal-content {
@@ -241,7 +256,7 @@ input::-webkit-input-placeholder
 }
 .swapTop{
   padding: 8px 12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   width: 100%;
   font-size: 18px;
   color: #000;
@@ -284,4 +299,16 @@ input::-webkit-input-placeholder
 }
 .tokenButton{
   margin-left: 12px;
+}
+.swapConfirm{
+  width: 100%;
+  font-size: 18px;
+  outline: none;
+  cursor: auto;
+  border: 1px solid transparent;
+  background-color: gray;
+  opacity: 0.6;
+  padding: 16px;
+  font-weight: 500;
+  border-radius: 20px;
 }
