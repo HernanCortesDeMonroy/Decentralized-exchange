@@ -1,14 +1,20 @@
 import './App.css';
 import { useState, useEffect} from 'react';
 import {ethers} from 'ethers';
+import { GearFill } from 'react-bootstrap-icons';
 
 import PageButton from './components/PageButton';
 import ConnectButton from './components/ConnectButton';
+import ConfigModal from './components/ConfigModal';
 
 function App() {
   const [provider, setProvider] = useState(undefined);
   const [signer, setSigner] = useState(undefined);
   const [signerAddress, setSignerAddress] = useState(undefined);
+
+  const [slippageAmount, setSlippageAmount] = useState(2);
+  const [deadlineMinutes, setDeadlineMinutes] = useState(10);
+  const [showModal, setShowModal] = useState(undefined);
 
   useEffect(() => {
     const onLoad = async () => {
@@ -59,35 +65,27 @@ function App() {
           </div>
         </div>
       </div>
-      <div className='main'>
-        <div className='swapPage'>
-          <div className='swapTop'>
-            <div>Swap</div>
-          </div>
-          <div className='swapForm'> {/* parental form element - Position*/}
-            <div className='swapBorder'> {/* border and style */}
-              <div className='swapBorderPosition'> {/* position between input and button */}
-                <input className='swapInput' name='firstToken' type='number' placeholder='0'/> {/*maybe reactjs*/}
-                <button className='tokenButton'></button>
-              </div>
-              <div className='swapBorderPrice'>
 
-              </div>
-            </div>
-          </div>
-          <div className='swapForm'> {/* parental form element - Position*/}
-            <div className='swapBorder'>
-            <div className='swapBorderPosition'> {/* position between input and button */}
-                <input className='swapInput' name='firstToken' type='number' placeholder='0'/> {/*maybe reactjs*/}
-                <button className='tokenButton'></button>
-              </div>
-              <div className='swapBorderPrice'>
-        
-              </div>
-            </div>
-          </div>
+      <div className='appBody'>
+        <div className='swapContainer'>
+          <div className='swapHeader'>
+            <span className='swapText'>Swap</span>
+            <span className='gearContainer' onClick={() => setShowModal(true)}>
+              <GearFill />
+            </span>
+            {showModal && (
+              <ConfigModal 
+                onClose={() => setShowModal(false)}
+                setDeadlineMinutes={setDeadlineMinutes}
+                deadlineMinutes={deadlineMinutes}
+                setSlippageAmount={setSlippageAmount}
+                slippageAmount={slippageAmount}
+              />
+            )}
+          </div>  
         </div>
       </div>
+
     </div>
     
   );
