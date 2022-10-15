@@ -3,6 +3,7 @@ import { useState, useEffect} from 'react';
 import {ethers} from 'ethers';
 
 import PageButton from './components/PageButton';
+import WalletButton from './components/walletButton';
 import ConnectButton from './components/ConnectButton';
 
 function App() {
@@ -55,7 +56,7 @@ function App() {
             />
           </div>
           <div className='my-2 buttonContainer'>
-          <PageButton name={"..."} isBold={true}/>
+          <WalletButton name={"..."} isBold={true}/>
           </div>
         </div>
       </div>
@@ -87,7 +88,7 @@ function App() {
             </div>
           </div>
           <div>
-            <button className='swapConfirm'>OK</button> {/* DO IT REACT*/}
+            <button className='swapConfirm'>OK</button> {/* DO IT REACT*/} 
           </div>
         </div>
       </div>

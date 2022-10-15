@@ -1,5 +1,6 @@
 import React from "react";
 import PageButton from "./PageButton";
+import WalletButton from "./walletButton";
 
 const ConnectButton = (props) => {
     const {isConnected, signerAddress, getSigner, provider} = props;
@@ -9,7 +10,7 @@ const ConnectButton = (props) => {
         <>
         {isConnected() ? (
             <div className="buttonContainer buttonConnected">
-            <PageButton name={displayAddress} />
+            <WalletButton name={displayAddress} />
             </div>
          ) : (
             <div className="btn my-2 connectButton"
