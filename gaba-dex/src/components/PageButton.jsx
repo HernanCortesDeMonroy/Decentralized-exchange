@@ -2,11 +2,9 @@ import React from "react";
 
 const PageButton = (props) => {
     return(
-        <div className="btn">
-            <span className={props.isBold ? "pageButtonBold" : "hoverBold"} >
-                {props.name}
-            </span>
-        </div>
+        <a className={props.isBold ? "hoverBold topButton" : "topButton"}>
+            {props.name}
+        </a>
     )
 }
 

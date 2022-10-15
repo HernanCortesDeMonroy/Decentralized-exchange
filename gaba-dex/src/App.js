@@ -86,6 +86,9 @@ function App() {
               </div>
             </div>
           </div>
+          <div>
+            <button className='swapConfirm'>OK</button> {/* DO IT REACT*/}
+          </div>
         </div>
       </div>
     </div>
