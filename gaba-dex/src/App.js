@@ -38,7 +38,7 @@ function App() {
       setProvider(provider);
 
       const wethContract = getWethContract()
-      setWethContract = wethContract;
+      setWethContract(wethContract);
 
       const uniContract = getUniContract()
       setUniContract(uniContract);
@@ -53,20 +53,15 @@ function App() {
   }
 
   const isConnected = () => signer !== undefined;
-  const getWalletAddress = () => {
-    signer.getAddress()
-    .then(address => {
-      setSignerAddress(address) 
+  const getWalletAddress = async () => {
+      let address = await signer.getAddress();
+      setSignerAddress(address);
 
-      wethContract.balanceOf(address)
-      .then(res => {
-        setWethAmount(Number( ethers.utils.formatEther(res)) )
-      })
-      uniContract.balanceOf(address)
-      .then(res => {
-        setUniAmount(Number( ethers.utils.formatEther(res)) )
-      })
-    })
+      let wethAddress = await wethContract.balanceOf(address)
+      setWethAmount(Number(ethers.utils.formatEther(wethAddress))); 
+      
+      let uniAddress = await uniContract.balanceOf(address)
+      setUniAmount(Number( ethers.utils.formatEther(uniAddress)) )
   }
 
   if(signer !== undefined) {

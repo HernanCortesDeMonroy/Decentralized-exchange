@@ -23,7 +23,7 @@ const CurrencyField =(props) => {
             <div className="col-md-6 tokenContainer">
                 <span className="tokenName">{props.tokenName}</span>
                     <div className="balanceContainer">
-                        <span className="balanceAmount">Balance: {props.balance?.toFixed(3)}</span>
+                        <span className="balanceAmount">Balance: {props.balance?.toFixed(5)}</span>
                     </div>
             </div>
         </div>
