@@ -13,14 +13,14 @@ const web3Provider = new ethers.providers.JsonRpcProvider(REACT_APP_INFURA_URL_T
 const router = new AlphaRouter({chainId, provider: web3Provider})
 
 const name0 = 'Wrapped Ether'
-const symbol0 = WETH;
+const symbol0 = 'WETH';
 const decimals0 = 18;
-const address0 = "";
+const address0 = "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6";
 
 const name1 = "Uniswap Token";
 const symbol1 = 'UNI';
 const decimals1 = 18;
-const address1 = "";
+const address1 = "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984";
 
 const WETH = new Token(chainId, address0, decimals0, symbol0, name0);
 const UNI = new Token(chainId, address1, decimals1, symbol1, name1);
