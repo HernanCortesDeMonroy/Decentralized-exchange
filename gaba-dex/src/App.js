@@ -7,10 +7,10 @@ import PageButton from './components/PageButton';
 import WalletButton from './components/walletButton';
 import ConnectButton from './components/ConnectButton';
 import ConfigModal from './components/ConfigModal';
-import { Currency } from '@uniswap/sdk';
+import CurrencyField from './components/CurrencyField';
 
-import { BeatLoader } from 'react-spinners';
-import {getWethContract, getUniContract } from '.AlphaRouterService'
+import BeatLoader from "react-spinners/BeatLoader";
+import {getWethContract, getUniContract, getPrice, runSwap} from './AlphaRouterService';
 
 function App() {
   const [provider, setProvider] = useState(undefined);
@@ -22,9 +22,9 @@ function App() {
   const [showModal, setShowModal] = useState(undefined);
 
   const [inputAmount, setInputAmount] = useState(undefined);
-  cosnt [outputAmount, setOutputAmount] = useState(undefined);
+  const [outputAmount, setOutputAmount] = useState(undefined);
   const [transaction, setTransaction] = useState(undefined);
-  cosnt [loading, setLoading] = useState(undefined);
+  const [loading, setLoading] = useState(undefined);
   const [ratio, setRatio] = useState(undefined);
   const [wethContract, setWethContract] = useState(undefined);
   const [uniContract, setUniContract] = useState(undefined);
@@ -71,6 +71,23 @@ function App() {
 
   if(signer !== undefined) {
     getWalletAddress()
+  }
+
+  const getSwapPrice =(inputAmount) => {
+    setLoading(true);
+    setInputAmount(inputAmount);
+
+    const swap = getPrice(
+      inputAmount,
+      slippageAmount,
+      Math.floor(Date.now()/1000 + (deadlineMinutes * 60)),
+      signerAddress
+    ).then(data => {
+      setTransaction(data[0]);
+      setOutputAmount(data[1]);
+      setRatio(data[2]);
+      setLoading(false);
+    })
   }
 
   return (
