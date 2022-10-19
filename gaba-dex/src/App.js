@@ -132,14 +132,14 @@ function App() {
             <div className='swapBody'>
               <CurrencyField
               field="input"
-              tokenName="WETH"
+              tokenName="USD" /* WETH */
               getSwapPrice={getSwapPrice}
               signer={signer}
               balance={wethAmount} />
 
               <CurrencyField
               field="output"
-              tokenName="UNI"
+              tokenName="KZT" /* UNI */
               value={outputAmount}
               signer={signer}
               balance={uniAmount}
@@ -150,7 +150,7 @@ function App() {
             <div className='ratioContainer'>
                 {ratio && (
                   <>
-                    {`1 UNI = ${ratio} WETH`}
+                    {`1 KZT = ${ratio} USD`} {/* 1 UNI = WETH */}
                   </>
                 )}
             </div>
