@@ -12,14 +12,13 @@ body {
 #root {
   min-height: 100vh;
 }
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
+    margin: 0;
+} */
 input::-webkit-input-placeholder
-{ color: white; } 
+{ color: gray; } 
 /******************************************************************************/
 /* Navbar */
 .appNav {
@@ -99,15 +98,13 @@ input::-webkit-input-placeholder
 /* Swap Container */
 .appBody {
   height: 100%;
-  padding-top: 80px;
+  margin-top: 80px;
 }
 
 .swapContainer {
   background-color: rgb(203, 231, 240);
   width: 440px;
-  height: 350px;
   margin: 0 auto;
-  top: 50%;
   border-radius: 24px;
   border: 1px solid #fff;
   padding: 6px;
@@ -125,7 +122,7 @@ input::-webkit-input-placeholder
 
 .gearContainer {
   float: right;
-  font-size: 22px
+  font-size: 20px
 }
 
 /******************************************************************************/
@@ -134,14 +131,15 @@ input::-webkit-input-placeholder
   background-color: rgb(217, 236, 242);
   margin: 10px !important;
   padding: 10px;
+  border: 1px solid transparent;
   border-radius: 20px;
+  transition: all .15s ease-in-out;
 }
 .currencyInput:hover {
   border-color: #65cdee !important;
-  border: 1px solid;
 }
 ::placeholder {
-  opacity: 0.25;
+  opacity: 0.45;
 }
 .numberContainer {
   text-align: left;
@@ -155,6 +153,7 @@ input::-webkit-input-placeholder
   display: inline-block;
   width: 100%;
   border: none;
+  outline: none;
   background-color: rgb(217, 236, 242);
 }
 .tokenContainer {
@@ -179,7 +178,7 @@ input::-webkit-input-placeholder
 /* Ratio */
 .ratioContainer {
   text-align: left;
-  margin-left: 10px;
+  margin-left: 17px;
   height: 28px;
 }
 
@@ -188,7 +187,7 @@ input::-webkit-input-placeholder
 /* Swap Button */
 .swapButtonContainer {
   margin: 10px;
-}
+} 
 .swapButton {
   width: 100%;
   height: 55px;
@@ -206,8 +205,8 @@ input::-webkit-input-placeholder
 .modaly {
   position: fixed;
   left: 0;
-  top: -510px;
-  right: -110px;
+  top: -370px;
+  right: -650px;
   bottom: 0;
   display: flex;
   align-items: center;
@@ -217,8 +216,8 @@ input::-webkit-input-placeholder
 
 .modal-content {
   background-color: #fff;
-  width: 300px !important;
-  padding: 0px 15px;
+  max-width: 300px !important;
+  padding: 5px 25px;
   background-color: rgb(237, 238, 242) !important;
   border: 1px solid rgb(206, 208, 217) !important;
   border-radius: 12px !important;
@@ -253,62 +252,4 @@ input::-webkit-input-placeholder
   width: 100%;
   max-width: 450px;
   margin: 50px auto 0px auto;
-}
-.swapTop{
-  padding: 8px 12px;
-  margin-bottom: 6px;
-  width: 100%;
-  font-size: 18px;
-  color: #000;
-  text-align: center;
-  font-weight: 500;
-}
-.swapPage{
-  position: relative;
-  border-radius: 16px;
-  border: 1px solid black;
-  padding: 8px;
-}
-.swapForm{
-  padding: 15px;
-  position: relative;
-  border-radius: 12px;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 500;
-  background-color: gray;
-  margin-bottom: 5px;
-}
-.swapBorder{
-  display: flex;
-  flex-flow: column nowrap;
-  position: relative;
-  min-height: 44px;
-}
-.swapBorderPosition{
-  display: flex;
-  flex-flow: row nowrap;
-  border: 1px solid transparent;
-}
-.swapInput{
-  font-size: 30px;
-  background-color: transparent;
-  border: 1px solid transparent;
-  outline: none;
-  color: #fff;
-}
-.tokenButton{
-  margin-left: 12px;
-}
-.swapConfirm{
-  width: 100%;
-  font-size: 18px;
-  outline: none;
-  cursor: auto;
-  border: 1px solid transparent;
-  background-color: gray;
-  opacity: 0.6;
-  padding: 16px;
-  font-weight: 500;
-  border-radius: 20px;
 }

@@ -37,8 +37,6 @@ const ConfigModal = (props) => {
                             <span>minutes</span>
                         </div>
                     </div>
-                    <div className="row">
-                    </div>
                 </div>
             </div>
         </div>    

@@ -17,6 +17,8 @@ const CurrencyField =(props) => {
                     placeholder="0.0"
                     value={props.value}
                     onBlur={e => (props.field === 'input' ? getPrice(e.target.value) : null)}
+                    minLength = "1"
+                    maxLength = "10"
                     />
                 )}
             </div>

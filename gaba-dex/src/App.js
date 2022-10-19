@@ -4,7 +4,6 @@ import {ethers} from 'ethers';
 import { GearFill } from 'react-bootstrap-icons';
 
 import PageButton from './components/PageButton';
-import WalletButton from './components/walletButton';
 import ConnectButton from './components/ConnectButton';
 import ConfigModal from './components/ConfigModal';
 import CurrencyField from './components/CurrencyField';
@@ -104,7 +103,11 @@ function App() {
             />
           </div>
           <div className='my-2 buttonContainer'>
-          <WalletButton name={"..."} isBold={true}/>
+            <div className="btn">
+              <span className="pageButtonBold">
+                ...
+              </span>
+            </div>
           </div>
         </div>
       </div>
