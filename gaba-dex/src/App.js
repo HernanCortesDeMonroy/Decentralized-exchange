@@ -144,7 +144,33 @@ function App() {
               loading={loading} />
             </div>
 
-        </div>
+            <div className='ratioContainer'>
+                {ratio && (
+                  <>
+                    {`1 UNI = ${ratio} WETH`}
+                  </>
+                )}
+            </div>
+
+            <div className='swapButtonContainer'>
+                  {isConnected() ? (
+                    <div
+                      onClick={() => runSwap(transaction, signer)} 
+                      className="swapButton"
+                      >
+                        Swap
+                    </div>
+                    ) : (
+                    <div onClick={() => getSigner(provider)}
+                    className="swapButton"
+                    >
+                      Connect Wallet
+                    </div>
+                    )
+                  }
+            </div>
+
+           </div>
       </div>
 
     </div>
