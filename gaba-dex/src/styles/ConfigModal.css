@@ -1,0 +1,84 @@
+.modaly {
+    position: fixed;
+    left: 0;
+    top: -400px;
+    right: -110px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d81919;
+}
+  
+.modal-content {
+    background-color: #fff;
+    max-width: 300px !important;
+    padding: 5px 25px 15px;
+    background-color:  rgb(255, 231, 240)  !important;
+    border: 1px solid rgb(206, 208, 217) !important;
+    border-radius: 12px !important;
+    font-family: sans-serif;
+}
+  
+.modalTitle {
+    margin: auto;
+}
+
+.titlehead{
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(213, 0, 102)!important;
+}
+
+.labelField{
+    line-height: 30px;
+}
+
+.inputField{
+    padding-right: 10px;
+    border-radius: 15px!important;
+    border: 1px solid #d81919;
+    height: 2rem;
+    margin: 3px 0;
+    width: 100%;
+    text-align: right;
+    display:inline-flex;
+    color:#d81919;
+    font-weight: bold;
+}
+:focus{
+    outline:none;
+}
+
+
+.autoButton {
+    display:inline;
+    padding: 1px 10px;
+    border:none;
+    background-color:  #d32121;
+    color: white;
+    margin-right: 10px;
+    border-radius: 15px;
+}
+
+.fieldContainer{
+    display:flex;
+    padding-left: 0px!important; 
+}
+
+.inputFieldUnitsContainer {
+    margin-top: 8px;
+    padding-left: 5px !important;
+    padding-top: 14x;
+    display: inline-flex;
+    font-weight: bold;
+}
+
+.unitMinute{
+    margin-right:47px;
+}
+
+::placeholder{
+    color: #d32121!important;
+}
+

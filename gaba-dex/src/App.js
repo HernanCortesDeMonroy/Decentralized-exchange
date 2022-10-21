@@ -46,7 +46,7 @@ function App() {
   }, [])
 
   const getSigner = async provider => {
-    provider.send("eth_requestAccounts", []);
+    await provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
     setSigner(signer);
   }
@@ -132,14 +132,14 @@ function App() {
             <div className='swapBody'>
               <CurrencyField
               field="input"
-              tokenName="USD" /* WETH */
+              tokenName="WETH" /* WETH */
               getSwapPrice={getSwapPrice}
               signer={signer}
               balance={wethAmount} />
 
               <CurrencyField
               field="output"
-              tokenName="KZT" /* UNI */
+              tokenName="UNI" /* UNI */
               value={outputAmount}
               signer={signer}
               balance={uniAmount}
@@ -150,7 +150,7 @@ function App() {
             <div className='ratioContainer'>
                 {ratio && (
                   <>
-                    {`1 KZT = ${ratio} USD`} {/* 1 UNI = WETH */}
+                    {`1 UNI = ${ratio} WETH`} {/* 1 UNI = WETH */}
                   </>
                 )}
             </div>

@@ -195,37 +195,19 @@ input::-webkit-input-placeholder
   font-size: 24px;
   color: #fff;
   border-radius: 20px;
-  background-color: #dd2f81;
-  cursor: pointer
+  background-color: #d32121;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.swapButton:hover {
+  background-color: #fc4242;
 }
 
 /******************************************************************************/
 /* Config Modal */
 
-.modaly {
-  position: fixed;
-  left: 0;
-  top: -370px;
-  right: -650px;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(86, 90, 105);
-}
 
-.modal-content {
-  background-color: #fff;
-  max-width: 300px !important;
-  padding: 5px 25px;
-  background-color: rgb(237, 238, 242) !important;
-  border: 1px solid rgb(206, 208, 217) !important;
-  border-radius: 12px !important;
-}
-
-.modalTitle {
-  margin: auto;
-}
 
 .titleHeader {
   margin-left: -12px;
@@ -233,21 +215,8 @@ input::-webkit-input-placeholder
 .labelField {
   padding-left: 0px !important;
 }
-.fieldContainer {
-  padding-left: 0px !important;
-}
-.inputField {
-  padding-left: 10px;
-  border-radius: 36px;
-  border: 1px solid #65cdee;
-  height: 2rem;
-  margin: 10px 0;
-  width: 100%;
-}
-.inputFieldUnitsContainer {
-  padding-left: 0px !important;
-  padding-top: 14px;
-}
+
+
 .main{
   width: 100%;
   max-width: 450px;
