@@ -129,28 +129,28 @@ function App() {
             )}
           </div>  
               
-            <div className='swapBody'>
-              <CurrencyField
-              field="input"
-              tokenName="WETH" /* WETH */
-              getSwapPrice={getSwapPrice}
-              signer={signer}
-              balance={wethAmount} />
+          <div className='swapBody'>
+            <CurrencyField
+            field="input"
+            tokenName="WETH"
+            getSwapPrice={getSwapPrice}
+            signer={signer}
+            balance={wethAmount} />
 
-              <CurrencyField
-              field="output"
-              tokenName="UNI" /* UNI */
-              value={outputAmount}
-              signer={signer}
-              balance={uniAmount}
-              spinner={BeatLoader}
-              loading={loading} />
-            </div>
+            <CurrencyField
+            field="output"
+            tokenName="UNI" 
+            value={outputAmount}
+            signer={signer}
+            balance={uniAmount}
+            spinner={BeatLoader}
+            loading={loading} />
+          </div>
 
             <div className='ratioContainer'>
                 {ratio && (
                   <>
-                    {`1 UNI = ${ratio} WETH`} {/* 1 UNI = WETH */}
+                    {`1 UNI = ${ratio} WETH`} 
                   </>
                 )}
             </div>

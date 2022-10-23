@@ -199,7 +199,6 @@ input::-webkit-input-placeholder
   cursor: pointer;
   transition: 0.25s;
 }
-
 .swapButton:hover {
   background-color: #fc4242;
 }
@@ -207,16 +206,12 @@ input::-webkit-input-placeholder
 /******************************************************************************/
 /* Config Modal */
 
-
-
 .titleHeader {
   margin-left: -12px;
 }
 .labelField {
   padding-left: 0px !important;
 }
-
-
 .main{
   width: 100%;
   max-width: 450px;
