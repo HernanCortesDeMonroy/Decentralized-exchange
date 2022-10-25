@@ -1,7 +1,7 @@
 .modaly {
     position: fixed;
     left: 0;
-    top: -400px;
+    top: -380px;
     right: -110px;
     bottom: 0;
     display: flex;
@@ -13,15 +13,11 @@
 .modal-content {
     background-color: #fff;
     max-width: 300px !important;
-    padding: 5px 25px 15px;
+    padding: 7px 25px 10px;
     background-color:  rgb(255, 231, 240)  !important;
     border: 1px solid rgb(206, 208, 217) !important;
     border-radius: 12px !important;
     font-family: sans-serif;
-}
-  
-.modalTitle {
-    margin: auto;
 }
 
 .titlehead{
