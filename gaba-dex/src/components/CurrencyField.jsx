@@ -1,6 +1,11 @@
-import React from "react";
+import '../styles/CurrencyField.css'
+import React, { useState } from "react";
+import TokenSelectModal from './TokenSelectModal';
 
 const CurrencyField =(props) => {
+    const [showSelectModal, setShowSelectModal] = useState(undefined);
+
+
     const getPrice = (value) => {
         props.getSwapPrice(value)
     }
@@ -23,10 +28,17 @@ const CurrencyField =(props) => {
                 )}
             </div>
             <div className="col-md-6 tokenContainer">
-                <span className="tokenName">{props.tokenName}</span>
-                    <div className="balanceContainer">
-                        <span className="balanceAmount">Balance: {props.balance?.toFixed(3)}</span>
-                    </div>
+                    <button className="tokenSelectModalButton" onClick={() => setShowSelectModal(true)}>
+                        {props.tokenName}
+                    </button>
+                        {showSelectModal && (
+                        <TokenSelectModal 
+                            onClose={() => setShowSelectModal(false)}
+                        />
+                        )}
+                <div className="balanceContainer">
+                    <span className="balanceAmount">Balance: {props.balance?.toFixed(3)}</span>
+                </div>
             </div>
         </div>
     )

@@ -1,0 +1,62 @@
+.select-modal {
+    position: fixed;
+    left: 0;
+    top: -700px;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    color: #fc0000;
+}
+
+.select-modal-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 400px;
+    background-color: #fff;
+    border: 1px solid rgb(248, 38, 10) !important;
+    border-radius: 12px !important;
+    font-family: sans-serif;
+    text-align: left!important;
+}
+
+.select-modal-body{
+    display: grid;
+    grid-auto-rows: auto;
+}
+
+.searchToken {
+    background-color: transparent;
+    border-color:rgb(248, 38, 10);
+    border-radius: 20px;
+    display: inline;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px!important;
+    width: 100%;
+    color:#fc0000;
+}
+
+.titleHeaderSelect {
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    display: inline;
+}
+
+.tokenNames {
+    margin-top: 15px;
+    color: black;
+    display: block;
+}
+
+.shortTokenName {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 10px;
+}
+
+.TokenNames:active{
+    background-color: rgb(180, 180, 180);
+}

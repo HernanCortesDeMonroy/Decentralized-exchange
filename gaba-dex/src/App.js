@@ -29,6 +29,7 @@ function App() {
   const [uniContract, setUniContract] = useState(undefined);
   const [wethAmount, setWethAmount] = useState(undefined);
   const [uniAmount, setUniAmount] = useState(undefined);
+  const [selectedToken, setSelectedToken] = useState();
 
 
   useEffect(() => {
