@@ -2,7 +2,7 @@
   "name": "gaba-dex",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/durdenweb3/Decentralized-exchange",
+  "homepage": "https://durdenweb3.github.io/Decentralized-exchange",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
