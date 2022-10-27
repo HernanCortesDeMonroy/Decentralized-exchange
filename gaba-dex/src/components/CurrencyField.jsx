@@ -4,7 +4,7 @@ import TokenSelectModal from './TokenSelectModal';
 
 const CurrencyField =(props) => {
     const [showSelectModal, setShowSelectModal] = useState(undefined);
-
+    const [token, setToken] = useState(undefined);
 
     const getPrice = (value) => {
         props.getSwapPrice(value)
@@ -34,6 +34,7 @@ const CurrencyField =(props) => {
                         {showSelectModal && (
                         <TokenSelectModal 
                             onClose={() => setShowSelectModal(false)}
+                            setToken = {setToken}
                         />
                         )}
                 <div className="balanceContainer">

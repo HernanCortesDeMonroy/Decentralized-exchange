@@ -11,30 +11,29 @@ const TokenSelectModal = (props) => {
     return(
         <div className="select-modal" onClick={props.onClose}>
             <div className="select-modal-content" onClick={e => e.stopPropagation()}>
-                <div className="select-modal-body">
-                    <h4 className="titleHeaderSelect">Select a token</h4>
+                <h4 className="titleHeaderSelect">Select a token</h4>
 
-                    <div className="row">
-                        <input 
-                        className="searchToken"
-                        placeholder="Search token by name"
+                <div className="row">
+                    <input 
+                    className="searchToken"
+                    placeholder="Search token by name"
                     />
-                    </div>
+                </div>
 
-                    <div className="tokenList">
-                        {tokens.map(token => 
-                            <div className="tokenNames">
-                                <div className="shortTokenName">
-                                {token.title}
-                                </div>
-
-                                <div className="fullTokenName">
-                                    {token.body}
-                                </div>
+                <div className="tokenList">
+                    {tokens.map(token => 
+                        <div 
+                        className="tokenNames" 
+                        onClick={() => props.setToken(token.title)}
+                        >
+                            <div className="shortTokenName">
+                            {token.title}
                             </div>
-
-                            )}
-                    </div>
+                            <div className="fullTokenName">
+                            {token.body}
+                            </div>
+                        </div>
+                        )}
                 </div>
             </div>
         </div>

@@ -20,6 +20,8 @@ function App() {
   const [deadlineMinutes, setDeadlineMinutes] = useState(10);
   const [showModal, setShowModal] = useState(undefined);
 
+  const [tokenNameIn, setTokenNameIn] = useState(undefined);
+  const [tokenNameOut, setTokenNameOut] = useState(undefined);
   const [inputAmount, setInputAmount] = useState(undefined);
   const [outputAmount, setOutputAmount] = useState(undefined);
   const [transaction, setTransaction] = useState(undefined);
@@ -31,6 +33,7 @@ function App() {
   const [uniAmount, setUniAmount] = useState(undefined);
   const [selectedToken, setSelectedToken] = useState();
 
+  let tn = "WETH";
 
   useEffect(() => {
     const onLoad = async () => {
