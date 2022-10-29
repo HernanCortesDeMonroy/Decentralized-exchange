@@ -1,6 +1,7 @@
 .currencyInput {
     background-color: rgb(217, 236, 242);
-    margin: 10px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
     padding: 10px;
     border: 1px solid transparent;
     border-radius: 20px;
@@ -46,11 +47,14 @@
   }
 
   .tokenSelectModalButton{
-    padding: 5px 25px;   
+    padding: 8px 30px;   
     color: white;
-    background-color:rgb(214, 87, 87);
+    background-color:rgb(207, 45, 45);
     border-radius: 30px;
-    border-color: #d32121;;
-    border-width: 3px;
-    border-style:solid;
+    border: none;
+    transition: 0.3s;
+  }
+
+  .tokenSelectModalButton:hover{
+    background-color:rgb(216, 78, 78);
   }

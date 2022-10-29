@@ -4,7 +4,7 @@ import TokenSelectModal from './TokenSelectModal';
 
 const CurrencyField =(props) => {
     const [showSelectModal, setShowSelectModal] = useState(undefined);
-    const [token, setToken] = useState(undefined);
+    const [tokenName, setTokenName] = useState(props.tokenName);
 
     const getPrice = (value) => {
         props.getSwapPrice(value)
@@ -29,12 +29,12 @@ const CurrencyField =(props) => {
             </div>
             <div className="col-md-6 tokenContainer">
                     <button className="tokenSelectModalButton" onClick={() => setShowSelectModal(true)}>
-                        {props.tokenName}
+                        {tokenName}
                     </button>
                         {showSelectModal && (
                         <TokenSelectModal 
                             onClose={() => setShowSelectModal(false)}
-                            setToken = {setToken}
+                            setTokenName = {setTokenName}
                         />
                         )}
                 <div className="balanceContainer">

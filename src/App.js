@@ -33,7 +33,10 @@ function App() {
   const [uniAmount, setUniAmount] = useState(undefined);
   const [selectedToken, setSelectedToken] = useState();
 
-  let tn = "WETH";
+  const [tokens, setTokens] = useState([
+    {id: 1, title: "WrappedEther", body: "WETH"},
+    {id: 2, title: "UNISWAP", body: "UNI"}
+  ]);
 
   useEffect(() => {
     const onLoad = async () => {
@@ -139,7 +142,10 @@ function App() {
             tokenName="WETH"
             getSwapPrice={getSwapPrice}
             signer={signer}
-            balance={wethAmount} />
+            balance={wethAmount} 
+            tokens={tokens}/>
+
+            <button>Chnge</button>
 
             <CurrencyField
             field="output"
@@ -148,7 +154,8 @@ function App() {
             signer={signer}
             balance={uniAmount}
             spinner={BeatLoader}
-            loading={loading} />
+            loading={loading} 
+            tokens={tokens}/>
           </div>
 
             <div className='ratioContainer'>

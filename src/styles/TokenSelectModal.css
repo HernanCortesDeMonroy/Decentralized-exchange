@@ -7,7 +7,9 @@
     display:flex;
     align-items:center;
     justify-content: center;
-    color: rgb(213, 0, 102);
+    animation-name: appear;
+    animation-duration: 300ms;
+    color: rgb(99, 0, 48);
 }
 
 .App{
@@ -25,20 +27,40 @@
     border-radius: 12px !important;
     font-family: sans-serif;
     text-align: left!important;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slide-in;
+    animation-duration: 0.5s;
 }
 
-
+@keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in {
+    from {
+      transform: translateY(-150px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 
 .searchToken {
     background-color: transparent;
-    border-color:rgb(248, 38, 10);
+    border-color:rgb(190, 190, 190);
     border-radius: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 40px;
     margin-left: 20px;
     width: 90%!important;
-    color:rgb(213, 0, 102);
+    color:rgb(99, 0, 48);
 }
 
 .titleHeaderSelect {
@@ -52,11 +74,11 @@
 .tokenNames {
     display: inline;
     padding-left: 15px;
-    color: rgb(117, 117, 117);
+    color: rgb(99, 0, 48);
     display: block;
     padding-bottom: 5px;
     padding-top: 5px;
-    line-height: 15px;
+    line-height: 17px;
 }
 
 .shortTokenName {
@@ -65,7 +87,8 @@
 }
 
 .tokenNames:hover{
-    background-color: rgb(143, 109, 109);
+    background-color: rgb(99, 0, 48);
+    color: white;
 }
 
 .tokenList {

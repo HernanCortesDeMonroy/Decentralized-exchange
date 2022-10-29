@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import "../styles/TokenSelectModal.css"
 
 const TokenSelectModal = (props) => {
+
     const [tokens, setTokens] = useState([
-        {id: 1, title: "ETH", body: "Ether"},
-        {id: 2, title: "UNI", body: "Uniswap"}
-    ]);
+        {id: 1, body: "WrappedEther", title: "WETH"},
+        {id: 2, body: "UNISWAP", title: "UNI"}
+      ]);
 
     return(
         <div className="select-modal" onClick={props.onClose}>
@@ -20,11 +21,12 @@ const TokenSelectModal = (props) => {
                     />
                 </div>
 
-                <div className="tokenList">
+                <div className="tokenList"
+                onClick={props.onClose}>
                     {tokens.map(token => 
-                        <div 
+                        <div key={token.id}
                         className="tokenNames" 
-                        onClick={() => props.setToken(token.title)}
+                        onClick={() => props.setTokenName(token.title)}
                         >
                             <div className="shortTokenName">
                             {token.title}
@@ -33,7 +35,7 @@ const TokenSelectModal = (props) => {
                             {token.body}
                             </div>
                         </div>
-                        )}
+                    )}
                 </div>
             </div>
         </div>
