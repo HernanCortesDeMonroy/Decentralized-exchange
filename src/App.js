@@ -145,7 +145,7 @@ function App() {
             balance={wethAmount} 
             tokens={tokens}/>
 
-            <button>Chnge</button>
+            <button>Change</button>
 
             <CurrencyField
             field="output"

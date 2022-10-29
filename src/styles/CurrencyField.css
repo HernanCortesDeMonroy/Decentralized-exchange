@@ -12,9 +12,11 @@
   }
   ::placeholder {
     opacity: 0.45;
+    z-index: 1;
   }
   .numberContainer {
     text-align: left;
+    z-index: 2;
   }
   .spinnerContainer {
     height: 55px;
@@ -27,6 +29,7 @@
     border: none;
     outline: none;
     background-color: rgb(217, 236, 242);
+    z-index: 1;
   }
   .tokenContainer {
     text-align: right;

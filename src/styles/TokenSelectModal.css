@@ -10,12 +10,13 @@
     animation-name: appear;
     animation-duration: 300ms;
     color: rgb(99, 0, 48);
+    z-index: 998;
 }
 
-.App{
-/*     filter: blur(8px);
-    -webkit-filter: blur(8px); */
-}
+/* .App{
+    filter: blur(8px);
+    -webkit-filter: blur(8px); 
+} */
 
 .select-modal-content {
 /*     padding-left: 20px;
@@ -31,6 +32,7 @@
     -webkit-animation-duration: 0.4s;
     animation-name: slide-in;
     animation-duration: 0.5s;
+    z-index: 999;
 }
 
 @keyframes appear {
