@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/soprano-swap/static/css/main.c0c0b40b.css",
-    "main.js": "/soprano-swap/static/js/main.084b9b88.js",
+    "main.css": "/soprano-swap/static/css/main.c4d74bf3.css",
+    "main.js": "/soprano-swap/static/js/main.edbe6b17.js",
     "index.html": "/soprano-swap/index.html",
-    "main.c0c0b40b.css.map": "/soprano-swap/static/css/main.c0c0b40b.css.map",
-    "main.084b9b88.js.map": "/soprano-swap/static/js/main.084b9b88.js.map"
+    "main.c4d74bf3.css.map": "/soprano-swap/static/css/main.c4d74bf3.css.map",
+    "main.edbe6b17.js.map": "/soprano-swap/static/js/main.edbe6b17.js.map"
   },
   "entrypoints": [
-    "static/css/main.c0c0b40b.css",
-    "static/js/main.084b9b88.js"
+    "static/css/main.c4d74bf3.css",
+    "static/js/main.edbe6b17.js"
   ]
 }
