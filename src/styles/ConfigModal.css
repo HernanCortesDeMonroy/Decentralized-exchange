@@ -1,13 +1,14 @@
 .modaly {
     position: fixed;
     left: 0;
-    top: -380px;
+    top: -410px;
     right: -110px;
     bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #d81919;
+    z-index: 300;
 }
   
 .modal-content {
