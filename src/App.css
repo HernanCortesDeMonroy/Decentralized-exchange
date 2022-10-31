@@ -23,6 +23,7 @@ input::-webkit-input-placeholder
 /* Navbar */
 .appNav {
   margin: 0 16px 0 0;
+  max-width: 100%;
 }
 
 .rightNav {
@@ -97,13 +98,13 @@ input::-webkit-input-placeholder
 /******************************************************************************/
 /* Swap Container */
 .appBody {
-  height: 100%;
-  margin-top: 80px;
+  width: 98%;
+  max-width: 460px;
+  margin: 80px auto;
 }
 
 .swapContainer {
   background-color: rgb(203, 231, 240);
-  width: 440px;
   margin: 0 auto;
   border-radius: 24px;
   border: 1px solid #fff;
@@ -171,4 +172,9 @@ input::-webkit-input-placeholder
   width: 100%;
   max-width: 450px;
   margin: 50px auto 0px auto;
+}
+@media(max-width: 720px){
+  .buttonContainerTop{
+    margin: auto auto;
+  } 
 }

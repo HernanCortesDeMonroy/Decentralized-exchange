@@ -19,7 +19,7 @@ const CurrencyField =(props) => {
                     </div>
                 ) : (
                     <input className="currencyInputField"
-                    placeholder="0.0"
+                    placeholder="0"
                     value={props.value}
                     onChange={e => (props.field === 'input' ? getPrice(e.target.value) : null)}
                     minLength = "1"

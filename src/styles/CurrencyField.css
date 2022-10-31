@@ -6,6 +6,7 @@
     border: 1px solid transparent;
     border-radius: 20px;
     transition: all .15s ease-in-out;
+    flex-wrap: nowrap !important;
   }
   .currencyInput:hover {
     border-color: #65cdee !important;
@@ -17,6 +18,9 @@
   .numberContainer {
     text-align: left;
     z-index: 2;
+    flex-shrink: 1 !important;
+    width: 100% !important;
+    padding-right: 0px !important;
   }
   .spinnerContainer {
     height: 55px;
@@ -33,6 +37,10 @@
   }
   .tokenContainer {
     text-align: right;
+    flex-shrink: 1 !important;
+    width: 70% !important;
+    padding-right: 5px !important;
+    padding-left: 0px !important;
   }
   .tokenName {
     font-size: 28px;
