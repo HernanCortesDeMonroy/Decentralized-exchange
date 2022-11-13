@@ -2,13 +2,13 @@ import './App.css';
 import { useState, useEffect} from 'react';
 import {ethers} from 'ethers';
 import { GearFill } from 'react-bootstrap-icons';
+import { BeatLoader } from 'react-spinners';
 
 import PageButton from './components/PageButton';
 import ConnectButton from './components/ConnectButton';
 import ConfigModal from './components/ConfigModal';
 import CurrencyField from './components/CurrencyField';
 
-import BeatLoader from "react-spinners/BeatLoader";
 import {getWethContract, getUniContract, getPrice, runSwap} from './AlphaRouterService';
 
 function App() {
@@ -29,14 +29,16 @@ function App() {
   const [ratio, setRatio] = useState(undefined);
   const [wethContract, setWethContract] = useState(undefined);
   const [uniContract, setUniContract] = useState(undefined);
-  const [wethAmount, setWethAmount] = useState(undefined);
-  const [uniAmount, setUniAmount] = useState(undefined);
-  const [selectedToken, setSelectedToken] = useState();
+  const [balanceTokenIn, setBalanceTokenIn] = useState(undefined);
+  const [balanceTokenOut, setBalanceTokenOut] = useState(undefined);
+  
 
   const [tokens, setTokens] = useState([
     {id: 1, title: "WrappedEther", body: "WETH"},
     {id: 2, title: "UNISWAP", body: "UNI"}
   ]);
+  const [tokenIn, setTokenIn] = useState(undefined);
+  const [tokenOut, setTokenOut] = useState(undefined);
 
   useEffect(() => {
     const onLoad = async () => {
@@ -64,10 +66,10 @@ function App() {
       setSignerAddress(address);
 
       let wethAddress = await wethContract.balanceOf(address)
-      setWethAmount(Number(ethers.utils.formatEther(wethAddress))); 
+      setBalanceTokenIn(Number(ethers.utils.formatEther(wethAddress))); 
       
       let uniAddress = await uniContract.balanceOf(address)
-      setUniAmount(Number( ethers.utils.formatEther(uniAddress)) )
+      setBalanceTokenOut(Number( ethers.utils.formatEther(uniAddress)) )
   }
 
   if(signer !== undefined) {
@@ -78,12 +80,13 @@ function App() {
     setLoading(true);
     setInputAmount(inputAmount);
 
-    const swap = getPrice(
+   // const swap = getPrice(
+    getPrice(
       inputAmount,
       slippageAmount,
       Math.floor(Date.now()/1000 + (deadlineMinutes * 60)),
       signerAddress
-    ).then(data => {
+      ).then(data => {
       setTransaction(data[0]);
       setOutputAmount(data[1]);
       setRatio(data[2]);
@@ -134,28 +137,28 @@ function App() {
                 slippageAmount={slippageAmount}
               />
             )}
-          </div>  
-              
+
+          </div>    
           <div className='swapBody'>
             <CurrencyField
             field="input"
             tokenName="WETH"
             getSwapPrice={getSwapPrice}
             signer={signer}
-            balance={wethAmount} 
+            balance={balanceTokenIn} 
             tokens={tokens}/>
 
             <button>Change</button>
-
+            
             <CurrencyField
             field="output"
             tokenName="UNI" 
             value={outputAmount}
             signer={signer}
-            balance={uniAmount}
+            balance={balanceTokenOut}
             spinner={BeatLoader}
             loading={loading} 
-            tokens={tokens}/>
+            tokens={tokens}/> 
           </div>
 
             <div className='ratioContainer'>
