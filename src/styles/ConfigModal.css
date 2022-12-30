@@ -19,6 +19,7 @@
     border: 1px solid rgb(206, 208, 217) !important;
     border-radius: 12px !important;
     font-family: sans-serif;
+    transition: 1s;
 }
 
 .titlehead{

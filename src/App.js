@@ -147,8 +147,6 @@ function App() {
             signer={signer}
             balance={balanceTokenIn} 
             tokens={tokens}/>
-
-            <button>Change</button>
             
             <CurrencyField
             field="output"

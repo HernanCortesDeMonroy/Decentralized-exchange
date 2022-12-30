@@ -7,6 +7,7 @@
     border-radius: 20px;
     transition: all .15s ease-in-out;
     flex-wrap: nowrap !important;
+    margin-bottom: 13px;
   }
   .currencyInput:hover {
     border-color: #65cdee !important;
@@ -58,7 +59,7 @@
   }
 
   .tokenSelectModalButton{
-    padding: 8px 30px;   
+    padding: 7px 18px;   
     color: white;
     background-color:rgb(207, 45, 45);
     border-radius: 30px;

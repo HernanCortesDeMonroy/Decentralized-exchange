@@ -133,7 +133,6 @@ input::-webkit-input-placeholder
 /* Ratio */
 .ratioContainer {
   text-align: left;
-  margin-top: 3px;
   margin-left: 17px;
   height: 28px;
 }
