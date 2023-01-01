@@ -1,20 +1,18 @@
 .modaly {
-    position: fixed;
-    left: 0;
-    top: -175px;
-    right: -90px;
-    bottom: 0;
+    position: absolute;
+    right: 0;
+    left: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     z-index: 300;
-    min-width: 300px;
 }
   
 .modal-content {
     background-color: #fff;
     max-width: 300px !important;
+    width: 80% !important;
     padding: 7px 25px 10px;
     background-color:  #2C74B3  !important;
     border: 1px solid rgb(206, 208, 217) !important;
@@ -77,4 +75,9 @@
     margin-right:47px;
 }
 
-
+/* @media (max-width: 540px){
+    .modaly{
+        top: -100px;
+        right: 0;
+    }
+} */
