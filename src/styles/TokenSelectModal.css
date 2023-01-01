@@ -1,15 +1,15 @@
 .select-modal {
     position: fixed;
     left: 0;
-    top: -300px;
+    top: 0;
     right: 0;
     bottom: 0;
     display:flex;
     align-items:center;
     justify-content: center;
     animation-name: appear;
-    animation-duration: 300ms;
-    color: rgb(99, 0, 48);
+    animation-duration: 350ms;
+    color: #fff;
     z-index: 998;
     backdrop-filter: blur(3px);
     background-color: rgb(0, 0, 0, .3);
@@ -23,15 +23,16 @@
 .select-modal-content {
 /*     padding-left: 20px;
     padding-right: 20px; */
-    width: 400px;
-    height: 530px;
-    background-color:rgb(253, 234, 241);
-    border: 4px solid rgb(255, 255, 255) !important;
+    max-width: 400px;
+    width: 97%;
+    height: 70%;
+    background-color: #144272;
+    border: 2px solid rgb(255, 255, 255) !important;
     border-radius: 12px !important;
     font-family: sans-serif;
     text-align: left!important;
     -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
+    -webkit-animation-duration: 0.5s;
     animation-name: slide-in;
     animation-duration: 0.5s;
     z-index: 999;
@@ -57,33 +58,33 @@
 
 .searchToken {
     background-color: transparent;
-    border-color:rgb(190, 190, 190);
     border-radius: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 40px;
     margin-left: 20px;
     width: 90%!important;
-    color:rgb(99, 0, 48);
-    border: 1px solid rgb(99, 0, 48);
+    color: white;
+    border: 1px solid #2C74B3;
 }
 
 .titleHeaderSelect {
-    line-height: 40px;
+    line-height: 42px;
     font-weight: bold;
     font-size: 20px;
     display: inline;
-    padding-left: 20px;
+    padding: 12px 0 12px 18px;
 }
 
 .tokenNames {
     display: inline;
     padding-left: 15px;
-    color: rgb(99, 0, 48);
+    color: white;
     display: block;
     padding-bottom: 5px;
     padding-top: 5px;
     line-height: 17px;
+    cursor: pointer;
 }
 
 .shortTokenName {
@@ -92,11 +93,15 @@
 }
 
 .tokenNames:hover{
-    background-color: rgb(99, 0, 48);
+    background-color: #2C74B3;
     color: white;
 }
 
 .tokenList {
     display:block;
     margin-top: 15px;
+}
+
+input::placeholder{
+  color: #fff;
 }

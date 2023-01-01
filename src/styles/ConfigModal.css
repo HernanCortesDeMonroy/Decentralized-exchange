@@ -1,21 +1,22 @@
 .modaly {
     position: fixed;
     left: 0;
-    top: -410px;
-    right: -110px;
+    top: -175px;
+    right: -90px;
     bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #d81919;
+    color: white;
     z-index: 300;
+    min-width: 300px;
 }
   
 .modal-content {
     background-color: #fff;
     max-width: 300px !important;
     padding: 7px 25px 10px;
-    background-color:  rgb(255, 231, 240)  !important;
+    background-color:  #2C74B3  !important;
     border: 1px solid rgb(206, 208, 217) !important;
     border-radius: 12px !important;
     font-family: sans-serif;
@@ -35,13 +36,13 @@
 .inputField{
     padding-right: 10px;
     border-radius: 15px!important;
-    border: 1px solid #d81919;
+    border: 1px solid black;
     height: 2rem;
     margin: 3px 0;
     width: 100%;
     text-align: right;
     display:inline-flex;
-    color:#d81919;
+    color:black;
     font-weight: bold;
 }
 :focus{
@@ -53,7 +54,7 @@
     display:inline;
     padding: 1px 10px;
     border:none;
-    background-color:  #d32121;
+    background-color:  #174b8f;
     color: white;
     margin-right: 10px;
     border-radius: 15px;
@@ -76,7 +77,4 @@
     margin-right:47px;
 }
 
-::placeholder{
-    color: #d32121!important;
-}
 
