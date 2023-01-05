@@ -9,7 +9,7 @@ const REACT_APP_INFURA_URL_TESTNET = process.env.REACT_APP_INFURA_URL_TESTNET
 
 const chainId = 5;
 
-const web3Provider = new ethers.providers.JsonRpcProvider(REACT_APP_INFURA_URL_TESTNET);
+export const web3Provider = new ethers.providers.JsonRpcProvider(REACT_APP_INFURA_URL_TESTNET);
 const router = new AlphaRouter({chainId, provider: web3Provider})
 
 const name0 = 'Wrapped Ether'
@@ -28,14 +28,30 @@ const UNI = new Token(chainId, address1, decimals1, symbol1, name1);
 export const getWethContract = () => new ethers.Contract(address0, ERC20ABI, web3Provider);
 export const getUniContract = () => new ethers.Contract(address1, ERC20ABI, web3Provider);
 
-export const getPrice = async (inputAmount, slippageAmount, deadline, walletAddress) => {
+const tradeToken = (token) => {
+    if(token.address === address0) {
+        return WETH;
+    }
+    if(token.address === address1) {
+        return UNI;
+    }
+}
+
+const isApproved = async(walletAddress) => {
+
+}
+
+export const getPrice = async (inputAmount, slippageAmount, deadline, walletAddress, tokenIn, tokenOut) => { 
+    const from = tradeToken(tokenIn);
+    const to = tradeToken(tokenOut);
+    const approve = from.address;
     const percentSlippage = new Percent(slippageAmount, 100);
     const wei = ethers.utils.parseUnits(inputAmount.toString(), decimals0);
-    const currencyAmount = CurrencyAmount.fromRawAmount(WETH, JSBI.BigInt(wei));
+    const currencyAmount = CurrencyAmount.fromRawAmount(from, JSBI.BigInt(wei));
 
     const route = await router.route(
         currencyAmount,
-        UNI,
+        to,
         TradeType.EXACT_INPUT,
         {
             recipient: walletAddress,
@@ -65,8 +81,13 @@ export const getPrice = async (inputAmount, slippageAmount, deadline, walletAddr
 
 export const runSwap = async (transaction, signer) => {
     const approvalAmount = ethers.utils.parseUnits('10', 18).toString();
-    const contract0 = getWethContract();
-    await contract0.connect(signer).approve(
+    const contractWeth = getWethContract();
+    const contractUni = getUniContract();
+    await contractWeth.connect(signer).approve(
+        V3_SWAP_ROUTER_ADDRESS,
+        approvalAmount,
+    )
+    await contractUni.connect(signer).approve(
         V3_SWAP_ROUTER_ADDRESS,
         approvalAmount,
     )

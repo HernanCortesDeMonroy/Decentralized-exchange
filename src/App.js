@@ -1,6 +1,6 @@
 import './App.css';
-import { useState, useEffect} from 'react';
-import {ethers} from 'ethers';
+import { useState, useEffect } from 'react';
+import { ethers } from 'ethers';
 import { GearFill } from 'react-bootstrap-icons';
 import { BeatLoader } from 'react-spinners';
 
@@ -8,8 +8,9 @@ import PageButton from './components/PageButton';
 import ConnectButton from './components/ConnectButton';
 import ConfigModal from './components/ConfigModal';
 import CurrencyField from './components/CurrencyField';
+import TokenList from './components/WalletTokens';
 
-import {getWethContract, getUniContract, getPrice, runSwap} from './AlphaRouterService';
+import { getWethContract, getUniContract, getPrice, runSwap } from './AlphaRouterService';
 
 function App() {
   const [provider, setProvider] = useState(undefined);
@@ -20,9 +21,8 @@ function App() {
   const [deadlineMinutes, setDeadlineMinutes] = useState(10);
   const [showModal, setShowModal] = useState(undefined);
 
-  const [tokenNameIn, setTokenNameIn] = useState(undefined);
-  const [tokenNameOut, setTokenNameOut] = useState(undefined);
-  const [inputAmount, setInputAmount] = useState(undefined);
+  const [openTokenBox, setOpenTokenBox] = useState(undefined);
+
   const [outputAmount, setOutputAmount] = useState(undefined);
   const [transaction, setTransaction] = useState(undefined);
   const [loading, setLoading] = useState(undefined);
@@ -31,14 +31,14 @@ function App() {
   const [uniContract, setUniContract] = useState(undefined);
   const [balanceTokenIn, setBalanceTokenIn] = useState(undefined);
   const [balanceTokenOut, setBalanceTokenOut] = useState(undefined);
-  
 
-  const [tokens, setTokens] = useState([
-    {id: 1, title: "WrappedEther", body: "WETH"},
-    {id: 2, title: "UNISWAP", body: "UNI"}
-  ]);
-  const [tokenIn, setTokenIn] = useState(undefined);
-  const [tokenOut, setTokenOut] = useState(undefined);
+
+  const tokens = [
+    { id: 1, title: "WrappedEther", body: "WETH", address: "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6" },
+    { id: 2, title: "UNISWAP", body: "UNI", address: "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984" }
+  ]
+  const [tokenIn, setTokenIn] = useState(tokens[0])
+  const [tokenOut, setTokenOut] = useState(tokens[1]);
 
   useEffect(() => {
     const onLoad = async () => {
@@ -62,36 +62,38 @@ function App() {
 
   const isConnected = () => signer !== undefined;
   const getWalletAddress = async () => {
-      let address = await signer.getAddress();
-      setSignerAddress(address);
-
-      let wethAddress = await wethContract.balanceOf(address)
-      setBalanceTokenIn(Number(ethers.utils.formatEther(wethAddress))); 
-      
-      let uniAddress = await uniContract.balanceOf(address)
-      setBalanceTokenOut(Number( ethers.utils.formatEther(uniAddress)) )
+    let address = await signer.getAddress();
+    setSignerAddress(address);
+    let uniAddress = await uniContract.balanceOf(address)
+    let wethAddress = await wethContract.balanceOf(address)
+    setBalanceTokenIn(Number(ethers.utils.formatEther(wethAddress)));
+    setBalanceTokenOut(Number(ethers.utils.formatEther(uniAddress)))
   }
 
-  if(signer !== undefined) {
+  if (signer !== undefined) {
     getWalletAddress()
   }
 
-  const getSwapPrice =(inputAmount) => {
-    setLoading(true);
-    setInputAmount(inputAmount);
-
-   // const swap = getPrice(
-    getPrice(
-      inputAmount,
-      slippageAmount,
-      Math.floor(Date.now()/1000 + (deadlineMinutes * 60)),
-      signerAddress
+  const getSwapPrice = (inputAmount) => {
+    if (inputAmount !== 0 && inputAmount !== null) {
+      setLoading(true);
+      getPrice(
+        inputAmount,
+        slippageAmount,
+        Math.floor(Date.now() / 1000 + (deadlineMinutes * 60)),
+        signerAddress,
+        tokenIn,
+        tokenOut
       ).then(data => {
-      setTransaction(data[0]);
-      setOutputAmount(data[1]);
-      setRatio(data[2]);
+        setTransaction(data[0]);
+        setOutputAmount(data[1]);
+        setRatio(data[2]);
+        setLoading(false);
+      })
+    } else {
+      setOutputAmount(0);
       setLoading(false);
-    })
+    }
   }
 
   return (
@@ -105,18 +107,25 @@ function App() {
         </div>
         <div className='rightNav'>
           <div className='connectButtonContainer'>
-            <ConnectButton 
-            provider={provider}
-            isConnected={isConnected}
-            signerAddress={signerAddress}
-            getSigner={getSigner}
+            <ConnectButton
+              provider={provider}
+              isConnected={isConnected}
+              signerAddress={signerAddress}
+              getSigner={getSigner}
             />
           </div>
           <div className='my-2 buttonContainer'>
             <div className="btn">
-              <span className="pageButtonBold">
+              <span className="pageButtonBold" onClick={() => setOpenTokenBox(true)}>
                 ...
               </span>
+              {openTokenBox && (
+                <TokenList
+                  onClose={() => setOpenTokenBox(false)}
+                  address={signer}
+                  tokens={tokens}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -129,7 +138,7 @@ function App() {
               <GearFill />
             </span>
             {showModal && (
-              <ConfigModal 
+              <ConfigModal
                 onClose={() => setShowModal(false)}
                 setDeadlineMinutes={setDeadlineMinutes}
                 deadlineMinutes={deadlineMinutes}
@@ -138,60 +147,61 @@ function App() {
               />
             )}
 
-          </div>    
+          </div>
           <div className='swapBody'>
             <CurrencyField
-            field="input"
-            tokenName="WETH"
-            getSwapPrice={getSwapPrice}
-            signer={signer}
-            balance={balanceTokenIn} 
-            tokens={tokens}/>
-            
+              field="input"
+              tokenName="WETH"
+              getSwapPrice={getSwapPrice}
+              signer={signer}
+              balance={balanceTokenIn}
+              tokenIn={setTokenIn} />
+
             <CurrencyField
-            field="output"
-            tokenName="UNI" 
-            value={outputAmount}
-            signer={signer}
-            balance={balanceTokenOut}
-            spinner={BeatLoader}
-            loading={loading} 
-            tokens={tokens}/> 
+              field="output"
+              tokenName="UNI"
+              value={outputAmount}
+              signer={signer}
+              balance={balanceTokenOut}
+              spinner={BeatLoader}
+              loading={loading}
+              tokenOut={setTokenOut} />
           </div>
 
-            <div className='ratioContainer'>
-                {ratio && (
-                  <>
-                    {`1 UNI = ${ratio} WETH`} 
-                  </>
-                )}
-            </div>
+          <div className='ratioContainer'>
+            {ratio && (
+              <>
+                {`1 UNI = ${ratio} WETH`}
+              </>
+            )}
+          </div>
 
-            <div className='swapButtonContainer'>
-                  {isConnected() ? (
-                    <div
-                      onClick={() => runSwap(transaction, signer)} 
-                      className="swapButton"
-                      >
-                        Swap
-                    </div>
-                    ) : (
-                    <div onClick={() => getSigner(provider)}
-                    className="swapButton"
-                    >
-                      Connect Wallet
-                    </div>
-                    )
-                  }
-            </div>
+          <div className='swapButtonContainer'>
+            {isConnected() ? (
+              <div
+                onClick={() => runSwap(transaction, signer)}
+                className="swapButton"
+              >
+                Swap
+              </div>
+            ) : (
+              <div onClick={() => getSigner(provider)}
+                className="swapButton"
+              >
+                Connect Wallet
+              </div>
+            )
+            }
+          </div>
 
-           </div>
+        </div>
       </div>
 
     </div>
-             
-    
-  
-)}
+
+
+
+  )
+}
 
 export default App;

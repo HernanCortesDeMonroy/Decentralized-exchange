@@ -13,7 +13,7 @@ const CurrencyField =(props) => {
     return (
         <div className="row currencyInput">
             <div className="col-md-6 numberContainer"> 
-                {props.loading ? (
+                {props.loading && props.value !== null ? (
                     <div className="spinnerContainer">
                         <props.spinner />
                     </div>
@@ -35,6 +35,7 @@ const CurrencyField =(props) => {
                         <TokenSelectModal 
                             onClose={() => setShowSelectModal(false)}
                             setTokenName = {setTokenName}
+                            setToken = {props.field === 'input' ? props.tokenIn : props.tokenOut}
                         />
                         )}
                 <div className="balanceContainer">
